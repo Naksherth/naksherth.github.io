@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naksherth Nisthar | Data Science & Software Engineering Portfolio</title>
+
+    <!-- Tailwind CSS v4 (Browser CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+    <!-- Devicon for Language/Stack Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --almond: #EEE5DA;
+            --charcoal: #262424;
+        }
+
+        * {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--charcoal);
+        }
+
+        .bg-almond {
+            background-color: var(--almond);
+        }
+
+        .text-charcoal {
+            color: var(--charcoal);
+        }
+
+        .bg-charcoal {
+            background-color: var(--charcoal);
+        }
+
+        .border-charcoal {
+            border-color: var(--charcoal);
+        }
+
+        .pill-outline {
+            border-radius: 9999px;
+            border-width: 1px;
+            border-color: rgba(38, 36, 36, 0.12);
+            padding: 0.25rem 0.9rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .section-shell {
+            max-width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .section-kicker {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #6b7280;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(38, 36, 36, 0.06), rgba(38, 36, 36, 0.18), rgba(38, 36, 36, 0.06));
+        }
+
+        .card {
+            border-radius: 1.25rem;
+            border: 1px solid rgba(38, 36, 36, 0.08);
+            background-color: #ffffff;
+            padding: 1.75rem;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+            border-color: rgba(38, 36, 36, 0.18);
+        }
+
+        .hero-photo {
+            /* Unconstrained container for the new layout */
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Clean styling for a portrait-style image */
+        }
+
+        .badge-soft {
+            border-radius: 9999px;
+            background-color: rgba(238, 229, 218, 0.7);
+            color: var(--charcoal);
+            padding: 0.25rem 0.7rem;
+            font-size: 0.78rem;
+        }
+
+        .chip {
+            border-radius: 9999px;
+            border: 1px solid rgba(38, 36, 36, 0.12);
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+            color: #374151;
+            background-color: #f9fafb;
+        }
+
+        .devicon {
+            font-size: 1.8rem;
+            color: var(--charcoal);
+        }
+
+        .tech-pill {
+            border-radius: 9999px;
+            border: 1px solid rgba(38, 36, 36, 0.12);
+            background-color: #ffffff;
+            padding: 0.4rem 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .tech-pill i {
+            font-size: 1.2rem;
+        }
+
+        .scroll-strip {
+            display: flex;
+            gap: 0.75rem;
+            animation: scroll-horiz 26s linear infinite;
+        }
+
+        .scroll-strip:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-horiz {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(18px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            inset-block: 0.75rem 0.75rem;
+            left: 1.05rem;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(38, 36, 36, 0.2), rgba(38, 36, 36, 0.05));
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.05rem;
+            top: 0.8rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            background-color: var(--charcoal);
+            box-shadow: 0 0 0 4px rgba(238, 229, 218, 0.9);
+        }
+
+        .skill-icon-tile {
+            border-radius: 1rem;
+            border: 1px solid rgba(38, 36, 36, 0.08);
+            padding: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+            justify-content: space-between;
+            background: radial-gradient(circle at top left, rgba(238, 229, 218, 0.6), transparent 55%);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .skill-icon-tile:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+            border-color: rgba(38, 36, 36, 0.18);
+        }
+
+        .skill-level-bar {
+            position: relative;
+            width: 100%;
+            height: 0.35rem;
+            border-radius: 9999px;
+            background-color: rgba(148, 163, 184, 0.25);
+            overflow: hidden;
+        }
+
+        .skill-level-fill {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--charcoal), rgba(38, 36, 36, 0.6));
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.6s ease-out;
+        }
+
+        .bg-radial-gradient {
+            background: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 70%);
+        }
+
+        .tab-button {
+            border-radius: 9999px;
+            padding: 0.45rem 0.95rem;
+            font-size: 0.82rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background-color: #f9fafb;
+            color: #4b5563;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .tab-button.active {
+            background-color: var(--charcoal);
+            color: #ffffff;
+            border-color: var(--charcoal);
+        }
+
+        .filter-pill {
+            border-radius: 9999px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            cursor: pointer;
+            color: #4b5563;
+            background-color: #f9fafb;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .filter-pill.active {
+            background-color: var(--charcoal);
+            color: #ffffff;
+            border-color: var(--charcoal);
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            z-index: 50;
+            border-radius: 0.9rem;
+            background-color: #ffffff;
+            border: 1px solid rgba(34, 197, 94, 0.45);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+            padding: 0.85rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            max-width: 340px;
+            font-size: 0.86rem;
+            transform: translateY(120%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .toast.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                border-radius: 1rem;
+                padding: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-charcoal">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 border-b border-gray-100 nav-blur">
+        <nav class="section-shell flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-almond flex items-center justify-center border border-charcoal/10">
+                    <span class="text-xs font-semibold tracking-widest">NN</span>
+                </div>
+                <div>
+                    <div class="text-sm font-semibold tracking-tight">Naksherth Nisthar</div>
+                    <div class="text-[0.7rem] text-gray-500 uppercase tracking-[0.18em]">Data Science & Software Engineering</div>
+                </div>
+            </div>
+
+            <button id="navToggle" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
+
+            <div id="navLinks" class="hidden md:flex items-center gap-6 text-[0.86rem]">
+                <a href="#about" class="hover:text-gray-500 transition-colors">About</a>
+                <a href="#skills" class="hover:text-gray-500 transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-gray-500 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-gray-500 transition-colors">Projects</a>
+                <a href="#education" class="hover:text-gray-500 transition-colors">Education</a>
+                <a href="#contact" class="hover:text-gray-500 transition-colors">Contact</a>
+                <a href="https://github.com/Naksherth" target="_blank" class="hidden lg:inline-flex items-center gap-1 text-[0.8rem] border border-gray-200 rounded-full px-3 py-1 hover:border-charcoal hover:text-charcoal transition-colors">
+                    <i class="fab fa-github text-sm"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </nav>
+        <!-- Mobile dropdown -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-100 bg-white/95">
+            <div class="section-shell flex flex-col py-3 text-sm gap-1">
+                <a href="#about" class="py-1.5">About</a>
+                <a href="#skills" class="py-1.5">Skills</a>
+                <a href="#experience" class="py-1.5">Experience</a>
+                <a href="#projects" class="py-1.5">Projects</a>
+                <a href="#education" class="py-1.5">Education</a>
+                <a href="#contact" class="py-1.5">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Intro -->
+    <main>
+        <section id="about" class="section-shell pt-10 pb-10 md:pt-16 md:pb-16">
+                <div class="fade-in-up">
+                    <div class="card relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-almond opacity-70"></div>
+                        <div class="absolute -left-16 bottom-0 w-40 h-40 rounded-full border border-charcoal/10"></div>
+
+                        <div class="relative grid gap-10 md:grid-cols-[1.45fr_0.9fr] items-center">
+                            <div class="flex flex-col gap-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="pill-outline inline-flex items-center gap-1 bg-white/80">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        <span>Open to Opportunities</span>
+                                    </div>
+                                </div>
+
+                                <h1 class="text-3xl md:text-[2.7rem] font-semibold leading-tight text-charcoal">
+                                    Data Science Student & Full‑Stack Software Engineer
+                                </h1>
+
+                                <p class="text-base md:text-lg text-gray-600 leading-relaxed">
+                                    Passionate about building intelligent, data-driven products end-to-end — from clean, scalable backends and intuitive frontends to analytical workflows that uncover real insights. Currently studying
+                                    <span class="font-medium text-charcoal">BSc (Hons) in Data Science</span> while working as a <span class="font-medium text-charcoal">Full‑Stack Software Engineer Intern</span>.
+                                </p>
+
+                                <p class="text-sm md:text-[0.95rem] text-gray-600 leading-relaxed">
+                                    I collaborate across the stack: prototyping interfaces in React, exposing APIs with Flask/Node.js, and persisting data in relational databases. I care deeply about code quality, observability, and shipping in iterative, measurable cycles.
+                                </p>
+
+                               
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="badge-soft">Machine Learning & Analytics</span>
+                                    <span class="badge-soft">REST APIs & Microservices</span>
+                                    <span class="badge-soft">React Interfaces</span>
+                                </div>
+
+                                <div class="flex flex-wrap gap-4 items-center">
+                                    <div class="flex flex-col gap-1 text-xs text-gray-500">
+                                        <span class="uppercase tracking-[0.16em]">Based in</span>
+                                        <span class="text-sm font-medium text-charcoal">Kandy, Sri Lanka</span>
+                                    </div>
+                                    <div class="h-10 w-px bg-gray-200 hidden sm:block"></div>
+                                    <div class="flex flex-col gap-1 text-xs text-gray-500">
+                                        <span class="uppercase tracking-[0.16em]">Current Role</span>
+                                        <span class="text-sm font-medium text-charcoal">Software Engineer Intern @ Infinity AI</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-3 pt-1">
+                                    <a href="mailto:nakshathnisthar@gmail.com" class="inline-flex items-center gap-2 rounded-full bg-charcoal text-white text-xs md:text-sm px-4 py-2.5 hover:bg-black transition-colors">
+                                        <i class="fas fa-envelope text-xs"></i>
+                                        <span>Contact via Email</span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/naksherth-nisthar-782a9b278/" target="_blank" class="inline-flex items-center gap-2 rounded-full border border-charcoal/25 text-xs md:text-sm px-4 py-2.5 hover:border-charcoal hover:bg-almond/60 transition-colors">
+                                        <i class="fab fa-linkedin text-sm"></i>
+                                        <span>View LinkedIn</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center md:justify-end">
+                                <div class="hero-photo border border-charcoal/10">
+                                    <img src="profile.png" alt="Profile placeholder" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="overflow-hidden border border-gray-100 rounded-2xl bg-gray-50/70 relative">
+                                <div class="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+                                <div class="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+                                <div class="scroll-strip py-3 px-5 whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <span class="tech-pill"><i class="devicon-python-plain devicon"></i>Python</span>
+                                        <span class="tech-pill"><i class="devicon-react-original devicon"></i>React</span>
+                                        <span class="tech-pill"><i class="devicon-flask-original devicon"></i>Flask</span>
+                                        <span class="tech-pill"><i class="devicon-nodejs-plain devicon"></i>Node.js</span>
+                                        <span class="tech-pill"><i class="devicon-postgresql-plain devicon"></i>PostgreSQL</span>
+                                        <span class="tech-pill"><i class="devicon-mysql-plain devicon"></i>MySQL</span>
+                                        <span class="tech-pill"><i class="devicon-sqlite-plain devicon"></i>SQLite</span>
+                                        <span class="tech-pill"><i class="devicon-docker-plain devicon"></i>Docker</span>
+                                        <span class="tech-pill"><i class="devicon-git-plain devicon"></i>Git</span>
+                                        <span class="tech-pill"><i class="devicon-r-plain devicon"></i>R</span>
+                                        <span class="tech-pill"><i class="devicon-php-plain devicon"></i>PHP</span>
+                                        <span class="tech-pill"><i class="devicon-angularjs-plain devicon"></i>Angular</span>
+                                        <span class="tech-pill"><i class="devicon-wordpress-plain devicon"></i>WordPress</span>
+                                        <span class="tech-pill"><i class="devicon-firebase-plain devicon"></i>Firebase</span>
+                                        <span class="tech-pill"><i class="devicon-swagger-plain devicon"></i>Swagger</span>
+                                        <span class="tech-pill"><i class="devicon-postman-plain devicon"></i>Postman</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 ml-4">
+                                        <span class="tech-pill"><i class="devicon-python-plain devicon"></i>Python</span>
+                                        <span class="tech-pill"><i class="devicon-react-original devicon"></i>React</span>
+                                        <span class="tech-pill"><i class="devicon-flask-original devicon"></i>Flask</span>
+                                        <span class="tech-pill"><i class="devicon-nodejs-plain devicon"></i>Node.js</span>
+                                        <span class="tech-pill"><i class="devicon-postgresql-plain devicon"></i>PostgreSQL</span>
+                                        <span class="tech-pill"><i class="devicon-mysql-plain devicon"></i>MySQL</span>
+                                        <span class="tech-pill"><i class="devicon-sqlite-plain devicon"></i>SQLite</span>
+                                        <span class="tech-pill"><i class="devicon-docker-plain devicon"></i>Docker</span>
+                                        <span class="tech-pill"><i class="devicon-git-plain devicon"></i>Git</span>
+                                        <span class="tech-pill"><i class="devicon-r-plain devicon"></i>R</span>
+                                        <span class="tech-pill"><i class="devicon-php-plain devicon"></i>PHP</span>
+                                        <span class="tech-pill"><i class="devicon-angularjs-plain devicon"></i>Angular</span>
+                                        <span class="tech-pill"><i class="devicon-wordpress-plain devicon"></i>WordPress</span>
+                                        <span class="tech-pill"><i class="devicon-firebase-plain devicon"></i>Firebase</span>
+                                        <span class="tech-pill"><i class="devicon-swagger-plain devicon"></i>Swagger</span>
+                                        <span class="tech-pill"><i class="devicon-postman-plain devicon"></i>Postman</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-shell">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-shell py-10 md:py-14">
+            <div class="section-header">
+                <div>
+                    <div class="section-kicker">Skills & technologies</div>
+                    <h2 class="section-title">Interactive map of what I work with.</h2>
+                </div>
+                <div class="hidden sm:flex gap-2 text-xs text-gray-500">
+                    <span class="chip">Frontend Engineering</span>
+                    <span class="chip">Backend & APIs</span>
+                    <span class="chip">Data Science</span>
+                </div>
+            </div>
+
+            <!-- Icon grid -->
+            <div class="grid sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 fade-in-up">
+                <!-- Python -->
+                <div class="skill-icon-tile" data-skill-level="0.9">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-python-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Core</span>
+                    </div>
+                    <div class="text-sm font-medium">Python</div>
+                    <div class="text-xs text-gray-500">Data science, APIs, automation</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.9"></div>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-icon-tile" data-skill-level="0.85">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-javascript-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Core</span>
+                    </div>
+                    <div class="text-sm font-medium">JavaScript</div>
+                    <div class="text-xs text-gray-500">React, frontend logic & tooling</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.85"></div>
+                    </div>
+                </div>
+
+                <!-- React -->
+                <div class="skill-icon-tile" data-skill-level="0.8">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-react-original devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Frontend</span>
+                    </div>
+                    <div class="text-sm font-medium">React</div>
+                    <div class="text-xs text-gray-500">SPAs & component systems</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.8"></div>
+                    </div>
+                </div>
+
+                <!-- Flask -->
+                <div class="skill-icon-tile" data-skill-level="0.8">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-flask-original devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Backend</span>
+                    </div>
+                    <div class="text-sm font-medium">Flask</div>
+                    <div class="text-xs text-gray-500">RESTful APIs & services</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.8"></div>
+                    </div>
+                </div>
+
+                <!-- SQL -->
+                <div class="skill-icon-tile" data-skill-level="0.8">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-postgresql-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Data</span>
+                    </div>
+                    <div class="text-sm font-medium">SQL (PostgreSQL / MySQL / SQLite)</div>
+                    <div class="text-xs text-gray-500">Schema design, querying, optimisation</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.8"></div>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="skill-icon-tile" data-skill-level="0.75">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-java-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Language</span>
+                    </div>
+                    <div class="text-sm font-medium">Java</div>
+                    <div class="text-xs text-gray-500">OOP & backend foundations</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.75"></div>
+                    </div>
+                </div>
+
+                <!-- R -->
+                <div class="skill-icon-tile" data-skill-level="0.7">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-r-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">Data</span>
+                    </div>
+                    <div class="text-sm font-medium">R</div>
+                    <div class="text-xs text-gray-500">Statistical analysis & visualisation</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.7"></div>
+                    </div>
+                </div>
+
+                <!-- Docker -->
+                <div class="skill-icon-tile" data-skill-level="0.7">
+                    <div class="flex items-center justify-between w-full">
+                        <i class="devicon-docker-plain devicon"></i>
+                        <span class="text-[0.7rem] px-2 py-0.5 rounded-full bg-white/70 text-gray-600 border border-gray-200">DevOps</span>
+                    </div>
+                    <div class="text-sm font-medium">Docker & CI/CD</div>
+                    <div class="text-xs text-gray-500">Containerisation & GitHub Actions</div>
+                    <div class="skill-level-bar mt-1">
+                        <div class="skill-level-fill" style="--level: 0.7"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill Tabs -->
+            <div class="fade-in-up">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button class="tab-button active" data-skill-tab="data">Data Science</button>
+                    <button class="tab-button" data-skill-tab="frontend">Frontend</button>
+                    <button class="tab-button" data-skill-tab="backend">Backend & DevOps</button>
+                    <button class="tab-button" data-skill-tab="soft">Soft Skills</button>
+                </div>
+
+                <div>
+                    <!-- Data Science Tab -->
+                    <div class="grid md:grid-cols-2 gap-4 skill-tab-panel" data-tab-panel="data">
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Data Workflows</h3>
+                            <p class="text-xs text-gray-600 mb-2">Python, R, SQL</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Data cleaning, wrangling & exploratory analysis</li>
+                                <li>• Working with pandas / NumPy style workflows</li>
+                                <li>• Building simple ML models and evaluation loops</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Analytics‑ready Backends</h3>
+                            <p class="text-xs text-gray-600 mb-2">PostgreSQL, MySQL, SQLite, Firebase</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Schema design for analytics and reporting</li>
+                                <li>• Writing performant SQL queries and views</li>
+                                <li>• Using APIs to connect apps with dashboards</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Tab -->
+                    <div class="grid md:grid-cols-2 gap-4 skill-tab-panel hidden" data-tab-panel="frontend">
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">React UI Engineering</h3>
+                            <p class="text-xs text-gray-600 mb-2">React, JavaScript, HTML, CSS, Tailwind</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Component‑driven architecture & state management</li>
+                                <li>• Responsive UI, accessibility & UX best practices</li>
+                                <li>• Integrating REST APIs & handling async flows</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Product‑oriented Frontend</h3>
+                            <p class="text-xs text-gray-600 mb-2">Figma, UX collaboration</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Translating designs into pixel‑perfect views</li>
+                                <li>• Working iteratively with stakeholders</li>
+                                <li>• Performance‑aware frontend optimisation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Backend Tab -->
+                    <div class="grid md:grid-cols-2 gap-4 skill-tab-panel hidden" data-tab-panel="backend">
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Backend APIs</h3>
+                            <p class="text-xs text-gray-600 mb-2">Flask, Node.js, PHP</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• REST API design, routing, authentication</li>
+                                <li>• Integrating with SQL / Firebase data stores</li>
+                                <li>• Swagger / Postman driven API documentation</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Deployment & Reliability</h3>
+                            <p class="text-xs text-gray-600 mb-2">Git, Docker, CI/CD</p>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Git workflows for team collaboration</li>
+                                <li>• CI/CD with GitHub Actions for automated delivery</li>
+                                <li>• Containerising services for consistent deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills Tab -->
+                    <div class="grid md:grid-cols-2 gap-4 skill-tab-panel hidden" data-tab-panel="soft">
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Collaboration</h3>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Strong communication with technical & non‑technical peers</li>
+                                <li>• Agile ceremonies: stand‑ups, sprint planning, retros</li>
+                                <li>• Mentoring and knowledge‑sharing mindset</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-sm font-semibold mb-1">Problem‑solving & Ownership</h3>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>• Debugging complex issues across frontend & backend</li>
+                                <li>• Proactive in identifying improvements & automation</li>
+                                <li>• Adaptable to new stacks, tools, and business needs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-shell">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-shell py-10 md:py-14">
+            <div class="section-header">
+                <div>
+                    <div class="section-kicker">Experience</div>
+                    <h2 class="section-title">Hands‑on work in full‑stack engineering.</h2>
+                </div>
+                <div class="hidden sm:flex gap-2 text-xs text-gray-500">
+                    <span class="chip">Internship</span>
+                    <span class="chip">Agile</span>
+                </div>
+            </div>
+
+            <div class="relative pl-6 md:pl-10 timeline fade-in-up">
+                <article class="relative timeline-item mb-6">
+                    <div class="card ml-4">
+                        <div class="flex flex-wrap justify-between gap-3 mb-2">
+                            <div>
+                                <h3 class="text-sm md:text-[0.95rem] font-semibold">Software Engineer Intern (Full‑Stack)</h3>
+                                <p class="text-xs text-gray-600">Infinity AI • Colombo (Remote)</p>
+                            </div>
+                            <div class="text-right text-xs text-gray-500">
+                                <p class="font-medium text-charcoal">May 2025 – Present</p>
+                                <p>Full‑stack / AI‑driven products</p>
+                            </div>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1.5">
+                            <li>• Designed and maintained RESTful APIs using Flask and Node.js.</li>
+                            <li>• Implemented CI/CD pipelines with GitHub Actions for automated builds and deployments.</li>
+                            <li>• Developed and optimised responsive frontend interfaces using React.js integrated with backend services.</li>
+                            <li>• Managed and tuned SQLite and Firebase databases for performance and scalability.</li>
+                            <li>• Collaborated within an Agile team, participating in sprint planning and daily stand‑ups.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-shell">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-shell py-10 md:py-14">
+            <div class="section-header">
+                <div>
+                    <div class="section-kicker">Projects</div>
+                    <h2 class="section-title">Selected work across frontend, backend & data.</h2>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="frontend">Frontend</button>
+                    <button class="filter-pill" data-filter="backend">Backend</button>
+                    <button class="filter-pill" data-filter="data">Data‑centric</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5 fade-in-up" id="projectGrid">
+                <!-- Ticket Management System -->
+                <article class="card flex flex-col gap-3" data-category="backend frontend data">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">Ticket Management System</h3>
+                            <p class="text-xs text-gray-600">Flask • SQLite • React.js • GitHub</p>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <span class="badge-soft text-[0.7rem]">Full‑Stack</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-600">
+                        Ticket booking and management platform with user authentication and role‑based access control.
+                    </p>
+
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• Backend services built with Flask and SQLite.</li>
+                        <li>• React.js frontend for booking flows and dashboards.</li>
+                        <li>• Deployed on Heroku for live access and feedback.</li>
+                    </ul>
+
+                    <div class="flex flex-wrap gap-2 pt-1 text-xs">
+                        <a href="#" class="inline-flex items-center gap-1 text-charcoal hover:underline">
+                            <i class="fab fa-github"></i>
+                            <span>View Code</span>
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-1 text-charcoal/70 hover:underline">
+                            <i class="fas fa-external-link-alt text-[0.7rem]"></i>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Gallery Café Management Website -->
+                <article class="card flex flex-col gap-3" data-category="frontend backend">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">Gallery Café Management Website</h3>
+                            <p class="text-xs text-gray-600">HTML • CSS • PHP • JavaScript • SQL</p>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <span class="badge-soft text-[0.7rem]">Commerce</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-600">
+                        Full‑stack restaurant management system covering products, beverages, orders and admin operations.
+                    </p>
+
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• Implemented user authentication and role permissions.</li>
+                        <li>• Built shopping cart and ordering experience.</li>
+                        <li>• Designed responsive admin dashboard views.</li>
+                    </ul>
+
+                    <div class="flex flex-wrap gap-2 pt-1 text-xs">
+                        <a href="#" class="inline-flex items-center gap-1 text-charcoal hover:underline">
+                            <i class="fab fa-github"></i>
+                            <span>View Code</span>
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-1 text-charcoal/70 hover:underline">
+                            <i class="fas fa-external-link-alt text-[0.7rem]"></i>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Portfolio / Analytics Project Slot -->
+                <article class="card flex flex-col gap-3" data-category="frontend data">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">Personal Portfolio & Analytics (Concept)</h3>
+                            <p class="text-xs text-gray-600">React • Flask • PostgreSQL • Analytics</p>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <span class="badge-soft text-[0.7rem]">In Progress</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-600">
+                        Architecture concept for this portfolio: a React SPA consuming a Flask backend that persists contact form messages and tracks anonymised visit analytics.
+                    </p>
+
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• /api/contact endpoint persisting to PostgreSQL table <code>contact_messages</code>.</li>
+                        <li>• Analytics events stored for understanding engagement.</li>
+                        <li>• Designed to be deployed and linked from LinkedIn profile.</li>
+                    </ul>
+                </article>
+
+                <!-- Data / ML project placeholder -->
+                <article class="card flex flex-col gap-3" data-category="data">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">Data Science Project Slot</h3>
+                            <p class="text-xs text-gray-600">Python • Jupyter • Visualisation</p>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <span class="badge-soft text-[0.7rem]">Data Science</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-600">
+                        Reserve this space for a future ML / analytics project from your BSc Data Science — easily updatable to showcase notebooks, dashboards or models.
+                    </p>
+
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• Clearly tell the story from dataset → question → result.</li>
+                        <li>• Highlight metrics, visualisations and decisions.</li>
+                        <li>• Link to GitHub repo or deployed dashboard (e.g. Streamlit).</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-shell">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Education Section -->
+        <section id="education" class="section-shell py-10 md:py-14">
+            <div class="section-header">
+                <div>
+                    <div class="section-kicker">Education</div>
+                    <h2 class="section-title">Formal training in data & software.</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5 fade-in-up">
+                <article class="card">
+                    <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">BSc (Hons) in Data Science</h3>
+                    <p class="text-xs text-gray-600">London Metropolitan University</p>
+                    <div class="flex items-center justify-between mt-2 text-xs text-gray-500">
+                        <span>Sep 2025 – Sep 2026</span>
+                        <span class="badge-soft text-[0.7rem]">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">Higher Diploma in Computing and Software Engineering</h3>
+                    <p class="text-xs text-gray-600">Cardiff Metropolitan University, UK</p>
+                    <div class="flex items-center justify-between mt-2 text-xs text-gray-500">
+                        <span>Apr 2023 – Dec 2024</span>
+                        <span class="badge-soft text-[0.7rem] bg-green-50 border border-green-200">Result: Merit</span>
+                    </div>
+                </article>
+
+                <article class="card md:col-span-2">
+                    <h3 class="text-sm md:text-[0.95rem] font-semibold mb-1">G.C.E. Advanced Level – Commerce Stream</h3>
+                    <p class="text-xs text-gray-600">Badi‑ud‑Din Mahmud Girls’ College</p>
+                    <div class="flex flex-wrap justify-between mt-2 text-xs text-gray-500 gap-2">
+                        <span>2022</span>
+                        <span>Business Studies – A | ICT – B | Accounting – C | General English – A</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-shell">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-shell py-10 md:py-14">
+            <div class="section-header">
+                <div>
+                    <div class="section-kicker">Contact</div>
+                    <h2 class="section-title">Let’s talk about your next data‑driven product.</h2>
+                </div>
+                <div class="hidden sm:flex flex-col items-end text-xs text-gray-500">
+                    <span>Best way to reach me</span>
+                    <span class="font-medium text-charcoal">nakshathnisthar@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] gap-8 fade-in-up">
+                <!-- Contact info -->
+                <div class="card flex flex-col gap-4">
+                    <div>
+                        <h3 class="text-sm font-semibold mb-2">Direct details</h3>
+                        <div class="space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-almond flex items-center justify-center">
+                                    <i class="fas fa-location-dot text-[0.8rem]"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-[0.85rem] text-charcoal">Location</p>
+                                    <p>Kandy, Sri Lanka</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-almond flex items-center justify-center">
+                                    <i class="fas fa-phone text-[0.8rem]"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-[0.85rem] text-charcoal">Phone</p>
+                                    <p>+94 74 294 3344</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-almond flex items-center justify-center">
+                                    <i class="fas fa-envelope text-[0.8rem]"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-[0.85rem] text-charcoal">Email</p>
+                                    <p>nakshathnisthar@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-almond flex items-center justify-center">
+                                    <i class="fab fa-linkedin-in text-[0.8rem]"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-[0.85rem] text-charcoal">LinkedIn</p>
+                                    <p>Nakshath Nisthar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-dashed border-gray-200 mt-auto text-[0.8rem] text-gray-500">
+                    </div>
+                </div>
+
+                <!-- Contact form -->
+<!-- Contact form -->
+                <div class="card">
+                    <form id="contactForm" class="space-y-3 text-sm" 
+                        action="https://formsubmit.co/nakshathnisthar@gmail.com" 
+                        method="POST">
+
+                        <!-- Required hidden fields -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label for="name" class="block text-xs font-medium text-gray-700 mb-1">Name</label>
+                                <input id="name" name="name" type="text" required 
+                                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs 
+                                    focus:outline-none focus:ring-2 focus:ring-charcoal/70 focus:border-transparent" />
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-xs font-medium text-gray-700 mb-1">Email</label>
+                                <input id="email" name="email" type="email" required 
+                                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs 
+                                    focus:outline-none focus:ring-2 focus:ring-charcoal/70 focus:border-transparent" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-xs font-medium text-gray-700 mb-1">Subject</label>
+                            <input id="subject" name="subject" type="text" required 
+                                class="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs 
+                                focus:outline-none focus:ring-2 focus:ring-charcoal/70 focus:border-transparent" />
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs 
+                                    focus:outline-none focus:ring-2 focus:ring-charcoal/70 focus:border-transparent"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full inline-flex items-center justify-center gap-2 bg-charcoal text-white 
+                                rounded-full py-2.5 text-xs font-medium hover:bg-black transition-colors">
+                            <span>Send message</span>
+                            <i class="fas fa-paper-plane text-[0.7rem]"></i>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 mt-6">
+        <div class="section-shell py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-[0.78rem] text-gray-500">
+            <p>© 2024 Naksherth Nisthar. All rights reserved.</p>
+            <div class="flex items-center gap-3">
+                <a href="https://www.linkedin.com/in/naksherth-nisthar-782a9b278/" target="_blank" class="hover:text-charcoal transition-colors flex items-center gap-1">
+                    <i class="fab fa-linkedin text-sm"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Naksherth" target="_blank" class="hover:text-charcoal transition-colors flex items-center gap-1">
+                    <i class="fab fa-github text-sm"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+        <div class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+            <i class="fas fa-check text-xs"></i>
+        </div>
+        <div>
+            <p class="font-medium text-[0.8rem] text-charcoal mb-0.5">Message sent</p>
+            <p class="text-[0.72rem] text-gray-600">Thanks for reaching out. I’ll get back to you as soon as I can.</p>
+        </div>
+        <button id="toastClose" class="ml-2 text-gray-400 hover:text-gray-600 text-xs">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelectorAll('#mobileMenu a');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for anchor links (desktop nav)
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 70; // account for sticky header
+                    const rect = target.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetY = rect.top + scrollTop - offset;
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in sections & skill level bars
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Animate skill level bars within the observed element
+                        const fills = entry.target.querySelectorAll('.skill-level-fill');
+                        fills.forEach((fill) => {
+                            const level = parseFloat(fill.style.getPropertyValue('--level') || '0');
+                            fill.style.transform = `scaleX(${level})`;
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15,
+            }
+        );
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Skills tab switching
+        const tabButtons = document.querySelectorAll('[data-skill-tab]');
+        const tabPanels = document.querySelectorAll('.skill-tab-panel');
+
+        tabButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-skill-tab');
+
+                tabButtons.forEach((b) => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                tabPanels.forEach((panel) => {
+                    panel.classList.toggle('hidden', panel.getAttribute('data-tab-panel') !== target);
+                });
+            });
+        });
+
+        // Project filtering
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const projectCards = document.querySelectorAll('#projectGrid article');
+
+        filterPills.forEach((pill) => {
+            pill.addEventListener('click', () => {
+                const filter = pill.getAttribute('data-filter');
+
+                filterPills.forEach((p) => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                projectCards.forEach((card) => {
+                    const category = card.getAttribute('data-category') || '';
+                    if (filter === 'all' || category.includes(filter)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact form submission (front-end simulation)
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastClose = document.getElementById('toastClose');
+        let toastTimeout;
+
+        function showToast() {
+            toast.classList.add('visible');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 4200);
+        }
+
+        if (toastClose) {
+            toastClose.addEventListener('click', () => {
+                toast.classList.remove('visible');
+                clearTimeout(toastTimeout);
+            });
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = {
+                    name: contactForm.name.value.trim(),
+                    email: contactForm.email.value.trim(),
+                    subject: contactForm.subject.value.trim(),
+                    message: contactForm.message.value.trim(),
+                };
+
+                // Example: when you build your Flask backend, you can POST to it here.
+                // const response = await fetch('https://your-flask-backend-url/api/contact', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(formData),
+                // });
+
+                // For now, simulate async request and show a toast.
+                await new Promise((resolve) => setTimeout(resolve, 700));
+
+                contactForm.reset();
+                showToast();
+            });
+        }
+    </script>
+</body>
+</html>
